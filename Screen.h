@@ -23,15 +23,15 @@ private:
     HANDLE handlerInput = NULL;
 
 public:
-
-    int Width;
-    int Height;
-    int Left;
-    int Right;
-    int Bottom;
-    int posX;
-    int posY;
-
+    /*
+      int Width;
+      int Height;
+      int Left;
+      int Right;
+      int Bottom;
+      int posX;
+      int posY;
+    */
     DWORD BuffNumber = NULL;
     COORD dwSizer;
     COORD coord;
@@ -44,7 +44,7 @@ public:
     void SetCoord(int, int);
    // void Entry();
     void SetString(COORD,std::string, int);
-    
+
     int GetWidthWindow();
     int GetHeightWindow();
     int GetLeft();
