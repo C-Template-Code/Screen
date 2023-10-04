@@ -2,17 +2,20 @@
 #include "ColorUtils.h"
 #include <iostream>
 #include <Windows.h>
-Cursor::Cursor()
-{
+template void Cursor::SetCursorScreenPositionProperty<int>(int x, int y);
 
+Cursor::Cursor(HANDLE descriptor) : output(descriptor)
+{
+    
 }
 
 Cursor::~Cursor()
 {
 }
 
+
 template<typename Type>
-void Cursor::SetCursorScreenPosition(Type x , Type y)
+void Cursor::SetCursorScreenPositionProperty(Type x , Type y)
 {
 	if (std::is_same_v<Type, int> == true)
 	{
@@ -42,8 +45,7 @@ void Cursor::SetColor(Type color)
         SetConsoleTextAttribute(this->output, static_cast<WORD>(static_cast<underlying_type>(color)));
     }
     else {
-        std::cerr << "The method SetColor recieve Incorrect type"
-                  << std::endl
+        std::cerr << "The method SetColor recieve Incorrect type" << std::endl
                   << "Abort!";
         return;
     }
